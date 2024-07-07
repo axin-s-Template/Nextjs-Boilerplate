@@ -34,10 +34,9 @@
 		"tailwindcss": "^3.4.1",
 		"typescript": "^5"
 	},
-	"lint-staged": {
-		"src/**/*.{js,jsx,ts,tsx,json}": [
-			"npm run lint",
-			"prettier --write"
-		]
+	"config": {
+		"commitizen": {
+			"path": "@commitlint/cz-commitlint"
+		}
 	}
 }
