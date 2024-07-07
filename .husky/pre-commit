@@ -1,2 +1,3 @@
-#!/usr/bin/env sh
-. "${0%/*}/h"
+#!/bin/sh
+# Disable concurent to run `check-types` after ESLint in lint-staged
+cd "$(dirname "$0")/.." && npx lint-staged --concurrent false

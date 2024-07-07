@@ -1,2 +1,2 @@
-#!/usr/bin/env sh
-. "${0%/*}/h"
+#!/bin/sh
+cd "$(dirname "$0")/.." && npx --no -- commitlint --edit $1
