@@ -35,20 +35,10 @@
 		"tailwindcss": "^3.4.1",
 		"typescript": "^5"
 	},
-	"config": {
-		"commitizen": {
-			"path": "cz-conventional-changelog"
-		}
-	},
 	"lint-staged": {
-		"src/**/*.{js,jsx,ts,tsx,json}": [
-			"npm run lint",
+		"*.{js,jsx,ts,tsx}": [
+			"eslint --fix",
 			"prettier --write"
 		]
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
 	}
 }
