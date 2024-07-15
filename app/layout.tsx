@@ -1,8 +1,8 @@
+import ThemeProviders from '@/components/theme-providers';
 import siteMetadata from '@/data/siteMetadata';
 import { type Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import ThemeProviders from './theme-providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,7 +19,14 @@ export default function RootLayout({
 	return (
 		<html lang={siteMetadata.locale} suppressHydrationWarning>
 			<body className={inter.className}>
-				<ThemeProviders>{children}</ThemeProviders>
+				<ThemeProviders
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					{children}
+				</ThemeProviders>
 			</body>
 		</html>
 	);
