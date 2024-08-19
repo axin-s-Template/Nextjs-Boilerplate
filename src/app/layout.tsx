@@ -1,5 +1,5 @@
-import ThemeProviders from '@/components/theme-providers';
-import siteMetadata from '@/data/siteMetadata';
+import siteMetadata from '@/config/siteMetadata';
+import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { type Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -7,8 +7,26 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-	title: 'Next.js 模板！',
-	description: 'Next.js 基础启动模板'
+	metadataBase: new URL(siteMetadata.url),
+	title: {
+		template: '%s | ' + siteMetadata.name,
+		default: siteMetadata.title
+	},
+	description: siteMetadata.description,
+	keywords: '%s,' + siteMetadata.keywords.join(','),
+	manifest: '/site.webmanifest',
+	openGraph: siteMetadata.openGraph,
+	twitter: siteMetadata.twitter
+	// alternates: {
+	// 	canonical: constructSiteUrl('/'),
+	// 	types: {
+	// 		'application/rss+xml': [{ url: 'rss', title: 'RSS 订阅' }]
+	// 	}
+	// },
+	// other: {
+	// 	'baidu-site-verification': 'codeva-7AmpPWgzQY',
+	// 	'google-site-verification': 'TTbfOvWmLj0icfk0BQNUZB3crwReji82Q_vRdnZFFAc'
+	// }
 };
 
 export default function RootLayout({
@@ -19,14 +37,7 @@ export default function RootLayout({
 	return (
 		<html lang={siteMetadata.locale} suppressHydrationWarning>
 			<body className={inter.className}>
-				<ThemeProviders
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
-					{children}
-				</ThemeProviders>
+				<AntdRegistry>{children}</AntdRegistry>
 			</body>
 		</html>
 	);
