@@ -1,5 +1,7 @@
+import AntdConfigProvider from '@/components/AntdConfigProvider';
 import siteMetadata from '@/config/siteMetadata';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
+import { Layout } from 'antd';
 import { type Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -37,7 +39,12 @@ export default function RootLayout({
 	return (
 		<html lang={siteMetadata.locale} suppressHydrationWarning>
 			<body className={inter.className}>
-				<AntdRegistry>{children}</AntdRegistry>
+				<AntdRegistry>
+					{/* 自定义主题，配置 */}
+					<AntdConfigProvider>
+						<Layout>{children}</Layout>
+					</AntdConfigProvider>
+				</AntdRegistry>
 			</body>
 		</html>
 	);
