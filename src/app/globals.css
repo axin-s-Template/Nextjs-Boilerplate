@@ -1,7 +1,23 @@
-@tailwind base;
+/* @layer antd, tailwind-base;
+@layer tailwind-base {
+	@tailwind base;
+} */
+/* @tailwind base; */
+/* @tailwind components;
+@tailwind utilities; */
+/* @import 'antd/dist/reset.css'; */
+/* @import url(reset.css) layer(reset); */
+@layer tailwind-base, antd;
+
+@layer tailwind-base {
+	@tailwind base;
+}
 @tailwind components;
 @tailwind utilities;
+@layer reset, antd;
 
+@import url(antd/dist/reset.css) layer(reset);
+/* 更多自定义 css */
 @layer base {
 	:root {
 		--background: 0 0% 100%;

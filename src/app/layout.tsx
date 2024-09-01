@@ -1,4 +1,5 @@
 import AntdConfigProvider from '@/components/AntdConfigProvider';
+import StyledComponentsRegistry from '@/components/StyledComponentsRegistry';
 import siteMetadata from '@/config/siteMetadata';
 import { AntdRegistry } from '@ant-design/nextjs-registry';
 import { Layout } from 'antd';
@@ -42,7 +43,9 @@ export default function RootLayout({
 				<AntdRegistry>
 					{/* 自定义主题，配置 */}
 					<AntdConfigProvider>
-						<Layout>{children}</Layout>
+						<StyledComponentsRegistry>
+							<Layout>{children}</Layout>
+						</StyledComponentsRegistry>
 					</AntdConfigProvider>
 				</AntdRegistry>
 			</body>

@@ -9,7 +9,9 @@ export default function AntdConfigProvider({
 	children: React.ReactNode;
 }) {
 	const { isDarkMode } = useThemeStore();
-	console.log(typeof isDarkMode, !!isDarkMode, 'isDarkMode');
+	console.log(typeof isDarkMode, !!isDarkMode, 'isDarkMode-log');
+	console.warn(typeof isDarkMode, !!isDarkMode, 'isDarkMode-warn');
+	console.warn('这是一个 客户端打印', 'adsfas');
 	return (
 		<ConfigProvider
 			theme={{

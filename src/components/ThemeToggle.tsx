@@ -7,6 +7,7 @@ import React from 'react';
 
 const ThemeSwitcher: React.FC = () => {
 	const { isDarkMode, toggleTheme } = useThemeStore();
+	console.warn('这是一个 客户端打印');
 
 	return (
 		<Switch
